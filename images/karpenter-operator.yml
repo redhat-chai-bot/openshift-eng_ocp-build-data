@@ -1,0 +1,29 @@
+content:
+  source:
+    dockerfile: Dockerfile
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/karpenter-operator.git
+      web: https://github.com/openshift/karpenter-operator
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: karpenter-operator-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: karpenter-operator
+  delivery_repo_names:
+  - openshift5/karpenter-operator-rhel9
+for_payload: true
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+mode: wip
+name: openshift/karpenter-operator-rhel9
+owners:
+- macao@redhat.com
+- jkyros@redhat.com
+- joelsmith@redhat.com
+- mimccune@redhat.com
+payload_name: karpenter-operator
