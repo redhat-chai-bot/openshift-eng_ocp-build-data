@@ -32,6 +32,11 @@ releases:
       members:
         rpms: []
         images: []
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-agent-installer-node-agent
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-ovn-kubernetes
   4.12.91:
     assembly:
       type: standard
