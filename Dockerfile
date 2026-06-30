@@ -16,7 +16,9 @@ RUN if [ -x /usr/bin/microdnf ]; then \
     fi
 
 RUN echo 'skip_missing_names_on_install=0' >> /etc/yum.conf \
- && yum update -y  \
+ # Exclude openssl-fips-provider: updated version requires openssl-fips-provider-so
+ # which is not available, causing yum update to fail.
+ && yum update -y --exclude=openssl-fips-provider*  \
  && yum clean all
 
 # EUS / ELS images do not have repositories configured, and anyway they would
