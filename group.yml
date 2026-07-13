@@ -19,6 +19,8 @@ vars:
   MAJOR: 4
   MINOR: 22
 
+  FBC_DISABLE_CHANNEL_SKIPS: true
+
 arches:
 - x86_64
 - ppc64le
@@ -44,8 +46,6 @@ konflux:
   # The number of times a build should be attempted before giving up.
   # Each failed attempt will result in a failed record in BigQuery
   build_attempts: 1
-
-  FBC_DISABLE_CHANNEL_SKIPS: true
 
 # OCP versions to publish FBC builds to
 OCP_TARGET_VERSIONS: [
