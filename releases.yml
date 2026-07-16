@@ -38,7 +38,12 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e092b9f54b2706d228018acdd89991b4587b2cc272cae6d1fc7ddfdd49ea504e
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: ptp-operator
+            metadata:
+              is:
+                nvr: ose-ptp-operator-container-v4.18.0-202607141720.p2.gcb941fb.assembly.stream.el9
+            why: "Fix bundle/operand mismatch - pin operator to 202607141720 batch to match linuxptp-daemon 202607141324 already in release"
   4.18.48:
     assembly:
       type: standard
