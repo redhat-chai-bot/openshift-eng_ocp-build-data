@@ -4,7 +4,8 @@ content:
     dockerfile: Dockerfile.rhel9
     git:
       branch:
-        target: release-{MAJOR}.{MINOR}
+        target: tzdata-check-OCPBUGS-99649
+      pull_url: https://github.com/sdodson/images.git
       url: git@github.com:openshift-priv/images.git
       web: https://github.com/openshift/images
     path: base
