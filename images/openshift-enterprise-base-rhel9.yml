@@ -6,7 +6,7 @@ content:
       branch:
         target: tzdata-check-OCPBUGS-99649
       pull_url: https://github.com/sdodson/images.git
-      url: git@github.com:openshift-priv/images.git
+      url: git@github.com:sdodson/images.git
       web: https://github.com/openshift/images
     path: base
     ci_alignment:
