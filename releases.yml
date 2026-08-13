@@ -45,13 +45,21 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a2dc6eeac62e450761b06f71aaeff2b2853064e69197e2cff9aaec8ddaf4e21f
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0937a55d91cd5a6723aa3539a151643ba8697ce60f90642e83676ee7c0f72f24
       members:
-        rpms: []
-        images:
-          - distgit_key: agent-installer-ui
-            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        rpms:
+          - distgit_key: cri-o
+            why: Pin to the cri-o build actually installed in RHCOS to resolve CONFLICTING_INHERITED_DEPENDENCY
             metadata:
               is:
-                nvr: assisted-installer-ui-container-v4.21.0-202608111912.p2.ga5c154e.assembly.stream.el9
+                nvr: cri-o-1.34.10-2.rhaos4.21.git83ee25b.el9
+        images:
+          - distgit_key: agent-installer-ui
+            why: Pin latest released build to avoid issues with releasing a build with outdated prefetch-dependencies task version
+            metadata:
+              is:
+                nvr: assisted-installer-ui-container-v4.21.0-202608051112.p2.ga5c154e.assembly.stream.el9
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-network-tools
   4.21.28:
     assembly:
       type: standard
