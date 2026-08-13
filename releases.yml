@@ -38,6 +38,9 @@ releases:
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: ironic
+      issues:
+        include:
+        - id: OCPBUGS-87127
   4.19.42:
     assembly:
       type: standard
