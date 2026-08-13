@@ -4,7 +4,7 @@ content:
     git:
       branch:
         fallback: release-{MAJOR}.{MINOR}
-        target: fix-hermetic-build-calver
+        target: test-pr83-release-4.23
       url: git@github.com:openshift-priv/ansible-operator-plugins.git
       web: https://github.com/openshift/ansible-operator-plugins
     ci_alignment:
