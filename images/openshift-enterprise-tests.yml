@@ -45,3 +45,6 @@ owners:
 
 konflux:
   clone_git_tags: false
+  cachi2:
+    prefetch_mode: permissive
+  network_mode: open
