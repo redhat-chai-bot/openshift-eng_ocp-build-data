@@ -41,4 +41,4 @@ konflux_build_overrides:
 - task: build-container
   task_resources:
     requests:
-      memory: 8Gi
+      memory: 12Gi
