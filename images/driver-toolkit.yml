@@ -37,3 +37,8 @@ name: openshift/driver-toolkit-rhel9
 payload_name: driver-toolkit
 owners:
 - edge-sro@redhat.com
+konflux_build_overrides:
+- task: build-container
+  task_resources:
+    requests:
+      memory: 8Gi
