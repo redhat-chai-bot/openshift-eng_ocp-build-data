@@ -5,11 +5,12 @@ content:
     - action: replace
       match: "ARG RHEL_VERSION=''"
       replacement: "ARG RHEL_VERSION='9.2'"
-    # Uncomment the following sections to pin specific kernel versions
-
-    # - action: replace
-    #   match: "ARG KERNEL_VERSION=''"
-    #   replacement: "ARG KERNEL_VERSION='1.2.3'"
+    # Pin KERNEL_VERSION: kernel-modules-5.14.0-284.187.1.el9_2.ppc64le.rpm returns
+    # HTTP 403 from RHEL 9.2 E4S CDN (ppc64le only). Pin to previous available version.
+    # See ART-22685 for details. Remove this pin once the CDN issue is resolved.
+    - action: replace
+      match: "ARG KERNEL_VERSION=''"
+      replacement: "ARG KERNEL_VERSION='5.14.0-284.186.1.el9_2'"
 
     # - action: replace
     #   match: "ARG RT_KERNEL_VERSION=''"
