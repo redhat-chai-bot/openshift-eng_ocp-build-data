@@ -41,4 +41,4 @@ owners:
 - edge-sro@redhat.com
 konflux:
   sbom_step_resources:
-    memory: "16Gi"
+    memory: "32Gi"
