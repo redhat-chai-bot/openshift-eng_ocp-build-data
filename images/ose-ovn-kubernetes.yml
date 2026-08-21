@@ -48,3 +48,7 @@ owners:
 okd:
   enabled_repos:
   - rhel-9-server-ose-rpms
+  from:
+    builder:
+    - stream: rhel-9-golang-1.26
+    member: ovn-kubernetes-base
