@@ -42,3 +42,10 @@ konflux:
     aarch64: linux-d160-m2xlarge/arm64
   cachito:
     mode: removal
+okd:
+  content:
+    source:
+      modifications:
+      - action: replace
+        match: "node .yarn/releases/yarn-4.12.0.cjs install --immutable"
+        replacement: "for i in 1 2 3; do node .yarn/releases/yarn-4.12.0.cjs install --immutable && break || sleep 30; done"
