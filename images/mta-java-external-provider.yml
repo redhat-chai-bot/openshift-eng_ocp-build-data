@@ -13,6 +13,13 @@ content:
         target: main
       url: git@github.com:openshift-priv/migtools-mta-analyzer-lsp.git
       web: https://github.com/migtools/mta-analyzer-lsp
+    modifications:
+      - action: replace
+        match: "RUN CGO_ENABLED=1 GOOS=darwin go build"
+        replacement: "RUN CGO_ENABLED=0 GOOS=darwin go build"
+      - action: replace
+        match: "RUN CGO_ENABLED=1 GOOS=windows go build"
+        replacement: "RUN CGO_ENABLED=0 GOOS=windows go build"
 jira:
   project: MTA
   component: Application Analysis
