@@ -13,6 +13,10 @@ content:
         target: main
       url: git@github.com:openshift-priv/migtools-mta-tackle2-hub.git
       web: https://github.com/migtools/mta-tackle2-hub
+    modifications:
+      - action: replace
+        match: "make vet && CGO_ENABLED=1 go build"
+        replacement: "make go.work && CGO_ENABLED=1 go build"
     pkg_managers:
     - npm
     - gomod
