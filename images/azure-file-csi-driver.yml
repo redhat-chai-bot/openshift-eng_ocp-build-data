@@ -25,7 +25,7 @@ enabled_repos:
 for_payload: true
 from:
   builder:
-  - stream: golang
+  - image: registry.redhat.io/openshift/golang-builder:openshift-golang-builder-container-v1.21.13-202608260704.p2.gedd1cdd.assembly.stream.el8
   member: openshift-enterprise-base
 name: openshift/ose-azure-file-csi-driver-rhel8
 owners:
