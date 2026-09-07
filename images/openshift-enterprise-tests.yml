@@ -10,6 +10,13 @@ content:
       streams_prs:
         ci_build_root:
           member: ci-openshift-build-root-latest.rhel9
+    modifications:
+    - action: replace
+      match: "yum install --setopt=tsflags=nodocs -y $PACKAGES"
+      replacement: "yum install --setopt=tsflags=nodocs --disablerepo='ubi-*' -y $PACKAGES"
+    - action: replace
+      match: "yum update -y python3-six"
+      replacement: "yum update --disablerepo='ubi-*' -y python3-six"
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: openshift-enterprise-tests-container
