@@ -176,10 +176,10 @@ releases:
               is:
                 nvr: ose-agent-installer-utils-container-v4.23.0-202608180204.p2.g974f3f6.assembly.stream.el9
           - distgit_key: driver-toolkit
-            why: Pin DTK to match RHCOS kernel 687.42.1
+            why: Pin DTK to NVR matching the fixed ec.0 reference nightly payload
             metadata:
               is:
-                nvr: driver-toolkit-container-v4.23.0-202608310938.p3.gb63b175.assembly.stream.el9
+                nvr: driver-toolkit-container-v4.23.0-202608201748.p2.gb63b175.assembly.stream.el9
           - distgit_key: ingress-node-firewall-operator
             exclude: true
             why: "Bundle build ITS error - persistent Konflux EC verification failure (failed in prepare-release #1243 and #1244)"
