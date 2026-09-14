@@ -28,4 +28,8 @@ owners:
 delivery:
   delivery_repo_names:
   - openshift4/ose-ironic-rhel9
+konflux:
+  cachi2:
+    lockfile:
+      cross_arch: true
 payload_name: ironic
