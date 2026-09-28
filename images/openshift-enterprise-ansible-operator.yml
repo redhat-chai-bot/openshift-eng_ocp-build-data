@@ -4,7 +4,7 @@ content:
     git:
       branch:
         target: fix/CVE-2026-11332
-      url: https://github.com/abikouo/ansible-operator-plugins.git
+      url: https://github.com/redhat-chai-bot/openshift_ansible-operator-plugins.git
       web: https://github.com/openshift/ansible-operator-plugins
     ci_alignment:
       streams_prs:
