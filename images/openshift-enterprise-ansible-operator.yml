@@ -6,7 +6,7 @@ content:
         target: fix/CVE-2026-11332
       url: git@github.com:openshift-priv/ansible-operator-plugins.git
       url_pull: https://github.com/abikouo/ansible-operator-plugins.git
-      web: https://github.com/openshift/ansible-operator-plugins
+      web: https://github.com/abikouo/ansible-operator-plugins
     ci_alignment:
       streams_prs:
         commit_prefix: "UPSTREAM: <carry>: "
