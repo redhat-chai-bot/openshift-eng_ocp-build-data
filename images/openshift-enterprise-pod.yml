@@ -41,8 +41,6 @@ labels:
   io.openshift.tags: openshift,pod
 name: openshift5/ose-pod-rhel9
 payload_name: pod
-owners:
-- aos-pod@redhat.com
 okd:
   content:
     source:
@@ -51,5 +49,7 @@ okd:
         match: "RUN dnf install -y glibc-static\n"
         replacement: ""
       - action: replace
-        match: "-static -o /tree/pause"
-        replacement: "-o /tree/pause"
+        match: "gcc -Os -Wall -Werror -static -o"
+        replacement: "gcc -Os -Wall -Werror -o"
+owners:
+- aos-pod@redhat.com
