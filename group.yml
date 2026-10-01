@@ -224,6 +224,7 @@ public_upstreams:
     public: "https://github.com/operator-framework/operator-marketplace"
   - private: "https://github.com/openshift-priv"
     public: "https://github.com/openshift"
+    public_branch: release-4.22
   - private: "https://github.com/openshift-priv/cloud-event-proxy"
     public: "https://github.com/redhat-cne/cloud-event-proxy"
   - private: "https://github.com/openshift-priv/ocp-build-data"
