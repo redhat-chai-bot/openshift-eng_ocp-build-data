@@ -1009,6 +1009,13 @@ releases:
   stream:
     assembly:
       type: stream
+      rhcos:
+        rhel-coreos-10:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v5.0-art-dev@sha256:bfface3ac1f94a206dd08b451612098412bcba9acfa704560d6112b5f99bf026
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:afc3b19bfa5fc62943659fe4c3e07caa8d961780be41625c2166aee6f0562e33
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7b156fff81fb28ea0d6e718edda62a7d3f8ac4904109b62228c1d97a5d786f82
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:cdf0c30d22bdcf066ebf93a380f5452fa08f9ca84072a3dfd8b29a65e4a224aa
       permits:
         - code: OUTDATED_RPMS_IN_STREAM_BUILD
           component: '*'
