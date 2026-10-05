@@ -48,3 +48,15 @@ owners:
 okd:
   enabled_repos:
   - rhel-9-server-ose-rpms
+  content:
+    source:
+      modifications:
+      - action: replace
+        match: "ENV PYTHONDONTWRITEBYTECODE yes"
+        replacement: |
+          ENV PYTHONDONTWRITEBYTECODE yes
+          RUN cp /tmp/art/Current-IT-Root-CAs.pem /etc/pki/ca-trust/source/anchors/ 2>/dev/null && update-ca-trust || true
+          RUN sed -i 's/^sslverify=.*/sslverify=0/' /etc/yum.repos.d/art-unsigned.repo 2>/dev/null; \
+              grep -q '^sslverify' /etc/yum.repos.d/art-unsigned.repo 2>/dev/null || \
+              sed -i '/^\[/a sslverify=0' /etc/yum.repos.d/art-unsigned.repo 2>/dev/null; \
+              true
