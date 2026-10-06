@@ -6886,6 +6886,16 @@ releases:
       type: preview
   stream:
     assembly:
+      rhcos:
+        machine-os-content:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:52819115ed7650590b804e70def062789824362cc3319e5df336d368470cee5b
+        rhel-coreos-8:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:64cdb521400d926f0b78e1265897d96845b3d4d56ea57c1617a4600231c7de8e
+        rhel-coreos-8-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9b66b1a993258000037f2207edde64ed85b6226864008d0eb3dd9fdbfe21360e
       type: stream
       permits:
         - code: OUTDATED_RPMS_IN_STREAM_BUILD
