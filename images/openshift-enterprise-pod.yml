@@ -41,3 +41,8 @@ name: openshift5/ose-pod-rhel9
 payload_name: pod
 owners:
 - aos-pod@redhat.com
+okd:
+  from:
+    builder:
+    - stream: rhel-9-golang
+    stream: scratch
