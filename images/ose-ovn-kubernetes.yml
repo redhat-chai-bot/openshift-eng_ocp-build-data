@@ -44,5 +44,13 @@ payload_name: ovn-kubernetes
 owners:
 - aos-networking-staff@redhat.com
 okd:
+  content:
+    source:
+      modifications:
+      - action: replace
+        match: "ENV PYTHONDONTWRITEBYTECODE yes"
+        replacement: |
+          RUN cp /tmp/art/Current-IT-Root-CAs.pem /etc/pki/ca-trust/source/anchors/ 2>/dev/null; update-ca-trust 2>/dev/null; true
+          ENV PYTHONDONTWRITEBYTECODE yes
   enabled_repos:
   - rhel-9-server-ose-rpms
