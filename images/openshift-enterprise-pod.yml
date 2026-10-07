@@ -41,3 +41,13 @@ name: openshift5/ose-pod-rhel9
 payload_name: pod
 owners:
 - aos-pod@redhat.com
+okd:
+  content:
+    source:
+      modifications:
+        - action: replace
+          match: "RUN dnf install -y glibc-static"
+          replacement: "# OKD: glibc-static not needed (dynamic linking with base image)"
+        - action: replace
+          match: "-static -o"
+          replacement: "-o"
