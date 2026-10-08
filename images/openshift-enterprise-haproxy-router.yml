@@ -32,6 +32,12 @@ payload_name: haproxy-router
 owners:
 - aos-network-edge@redhat.com
 okd:
+  content:
+    source:
+      modifications:
+      - action: replace
+        match: "RUN INSTALL_PKGS=\"socat haproxy32 rsyslog procps-ng util-linux\""
+        replacement: "RUN cp /tmp/art /etc/pki/ca-trust/source/anchors/Current-IT-Root-CAs.pem && update-ca-trust extract\nRUN INSTALL_PKGS=\"socat haproxy32 rsyslog procps-ng util-linux\""
   distgit:
     branch: rhaos-5.0-rhel-9
   enabled_repos:
