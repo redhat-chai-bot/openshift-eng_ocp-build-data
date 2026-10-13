@@ -3,8 +3,9 @@ content:
     dockerfile: openshift/Dockerfile
     git:
       branch:
-        target: release-{MAJOR}.{MINOR}
+        target: fix/CVE-2026-11332_{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/ansible-operator-plugins.git
+      url_pull: https://github.com/abikouo/ansible-operator-plugins.git
       # : git@github.com:lgarciaaco/ansible-operator-plugins.git
       web: https://github.com/openshift/ansible-operator-plugins
     ci_alignment:
