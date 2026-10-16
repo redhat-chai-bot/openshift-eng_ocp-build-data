@@ -14,6 +14,9 @@ jira:
 distgit:
   component: quay-bridge-operator-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+konflux:
+  component:
+    bundle_name_override: quay-3-10-bridge-operator-bundle
 delivery:
   bundle_delivery_repo_name: quay/quay-bridge-operator-bundle
   delivery_repo_names:
