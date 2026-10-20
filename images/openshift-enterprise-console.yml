@@ -16,7 +16,17 @@ cachito:
 okd:
   content:
     source:
-      modifications: []
+      modifications:
+      - action: replace
+        match: "RUN container-entrypoint ./build-frontend.sh"
+        replacement: |
+          ENV YARN_NETWORK_CONCURRENCY=2
+          ENV NODE_OPTIONS="--dns-result-order=ipv4first"
+          WORKDIR frontend
+          RUN node .yarn/releases/yarn-4.18.0.cjs install --immutable || \
+              (sleep 30 && node .yarn/releases/yarn-4.18.0.cjs install --immutable) || \
+              (sleep 60 && node .yarn/releases/yarn-4.18.0.cjs install --immutable)
+          RUN node .yarn/releases/yarn-4.18.0.cjs run build
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: openshift-enterprise-console-container
