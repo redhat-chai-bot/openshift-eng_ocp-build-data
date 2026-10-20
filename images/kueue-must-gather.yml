@@ -1,0 +1,22 @@
+content:
+  source:
+    dockerfile: must-gather/Dockerfile
+    git:
+      branch:
+        target: release-1.5
+      url: git@github.com:openshift-priv/kueue-operator.git
+      web: https://github.com/openshift/kueue-operator
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: kueue-must-gather
+delivery:
+  delivery_repo_names:
+  - kueue/kueue-must-gather-rhel9
+for_payload: false
+from:
+  member: base-rhel9
+name: kueue/kueue-must-gather-rhel9
+name_in_bundle: kueue-must-gather-rhel9
+owners:
+- aos-team-art@redhat.com
+canonical_builders_from_upstream: false

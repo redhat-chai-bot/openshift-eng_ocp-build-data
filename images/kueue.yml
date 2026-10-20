@@ -1,0 +1,28 @@
+cachito:
+  packages:
+    gomod:
+      - path: .
+content:
+  source:
+    dockerfile: Dockerfile.kueue
+    git:
+      branch:
+        target: release-1.5
+      url: git@github.com:openshift-priv/kueue-operator.git
+      web: https://github.com/openshift/kueue-operator
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: Kueue
+delivery:
+  delivery_repo_names:
+  - kueue/kueue-rhel9
+for_payload: false
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: base-rhel9
+name: kueue/kueue-rhel9
+name_in_bundle: kueue-rhel9
+owners:
+- aos-team-art@redhat.com
+canonical_builders_from_upstream: false
