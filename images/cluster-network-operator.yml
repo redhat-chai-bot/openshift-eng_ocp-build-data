@@ -3,9 +3,10 @@ content:
     dockerfile: Dockerfile
     git:
       branch:
-        target: release-{MAJOR}.{MINOR}
+        target: 110d473a9cbfdaa01f7fc66426c1ac61034ef77e
       url: git@github.com:openshift-priv/cluster-network-operator.git
       web: https://github.com/openshift/cluster-network-operator
+      url_pull: https://github.com/redhat-chai-bot/cluster-network-operator.git
     ci_alignment:
       streams_prs:
         ci_build_root:
