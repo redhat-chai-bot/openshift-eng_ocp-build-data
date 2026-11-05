@@ -430,19 +430,6 @@ releases:
               is:
                 nvr: microshift-bootc-container-v4.21-202610012352.p2.g5f30446.assembly.4.21.36.el9
             why: Pin microshift-bootc image to assembly
-      permits:
-        - code: CONFLICTING_INHERITED_DEPENDENCY
-          component: cluster-node-tuning-operator
-        - code: CONFLICTING_INHERITED_DEPENDENCY
-          component: ironic-agent
-        - code: CONFLICTING_INHERITED_DEPENDENCY
-          component: openshift-enterprise-ansible-operator
-        - code: CONFLICTING_INHERITED_DEPENDENCY
-          component: openshift-enterprise-tests
-        - code: CONFLICTING_INHERITED_DEPENDENCY
-          component: ose-network-tools
-        - code: CONFLICTING_INHERITED_DEPENDENCY
-          component: ose-tools
   4.21.35:
     assembly:
       type: standard
