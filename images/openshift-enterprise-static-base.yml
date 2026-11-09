@@ -1,0 +1,53 @@
+base_only: true
+content:
+  source:
+    dockerfile: Containerfile
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/images.git
+      web: https://github.com/openshift/images
+    path: static-base
+    ci_alignment:
+      streams_prs:
+        # Try to have this PR merge as quickly as possible by pre-approving it.
+        auto_label:
+        - approved
+        - lgtm
+        merge_first: true
+      # This image installs no packages, so the image built in Brew can be
+      # used in CI as-is; mirror it there for components to build against.
+      # Setting upstream_image here ensures that reconciliation PRs for
+      # components referencing this image as their base image use the
+      # mirrored image.
+      mirror: true
+      upstream_image: registry.ci.openshift.org/ocp/{MAJOR}.{MINOR}:static-base
+distgit:
+  # The image is built on RHEL 9 content via the ubi9-micro stream; the
+  # image name itself is deliberately version-independent so consumers
+  # need not care what userspace their static executables land in.
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: openshift-enterprise-static-base-container
+for_payload: false
+for_release: false
+from:
+  stream: ubi9-micro
+labels:
+  License: GPLv2+
+  io.k8s.description: This is the base image from which all static OpenShift Container Platform images inherit.
+  io.k8s.display-name: OpenShift Container Platform Static Base
+  io.openshift.tags: openshift,base,static
+name: openshift/openshift-enterprise-static-base
+owners:
+- aos-team-art@redhat.com
+# This image installs nothing; its entire rpmdb is inherited from the
+# ubi9-micro stream. Exempt it from scanning since fixes land in the
+# parent image, not here.
+scan_sources:
+  exempt_rpms:
+  - '*'
+okd:
+  # There is no CentOS Stream micro image to build an OKD equivalent from.
+  # Revisit when the planned migration to hi/static happens, as that image
+  # is publicly available.
+  mode: disabled

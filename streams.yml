@@ -72,6 +72,15 @@ rhel10:
   upstream_image: registry.ci.openshift.org/ocp/builder:ubi10-minimal-openshift-{MAJOR}.{MINOR}.art
   mirror: false
 
+ubi9-micro:
+  # built on top of ubi9/ubi-micro; nothing is installed on top of it.
+  # Interim base for images shipping static executables; expected to be
+  # replaced by the hardened images static (hi/static) once it is available
+  # on all architectures OpenShift ships.
+  image: registry.redhat.io/ubi9/ubi-micro:latest
+  upstream_image: registry.ci.openshift.org/ocp/builder:ubi9-micro-openshift-{MAJOR}.{MINOR}.art
+  mirror: false
+
 nodejs-rhel9:
   image: registry.redhat.io/ubi9/nodejs-24:latest
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-openshift-nodejs-base-{MAJOR}.{MINOR}.art
