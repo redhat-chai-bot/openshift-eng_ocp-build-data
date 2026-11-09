@@ -3,12 +3,13 @@ content:
     dockerfile: openshift/Dockerfile
     git:
       branch:
-        target: release-{MAJOR}.{MINOR}
+        target: 8ef44c2531294076973b47d30215c99d97a20620
       url: git@github.com:openshift-priv/ansible-operator-plugins.git
       web: https://github.com/openshift/ansible-operator-plugins
+      url_pull: https://github.com/ldjebran/ansible-operator-plugins.git
     ci_alignment:
       streams_prs:
-        commit_prefix: "UPSTREAM: <carry>: "
+        commit_prefix: 'UPSTREAM: <carry>: '
         ci_build_root:
           member: ci-openshift-build-root-latest.rhel9
     pkg_managers:
