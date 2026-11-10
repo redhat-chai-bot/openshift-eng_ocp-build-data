@@ -55,7 +55,13 @@ scan_sources:
 konflux:
   network_mode: open
 okd:
-  # There is no CentOS Stream micro image to build an OKD equivalent from.
-  # Revisit when the planned migration to hi/static happens, as that image
-  # is publicly available.
-  mode: disabled
+  # OKD ships only x86_64 and aarch64, both published by the public
+  # hi/static image, so OKD uses the real hardened static image instead
+  # of reproducing the ubi9-micro subtraction: Containerfile.okd adds
+  # nothing but the shared labels on top of it. OCP keeps the ubi9-micro
+  # stream until hi/static is published for ppc64le as well.
+  from:
+    stream: hi-static
+  content:
+    source:
+      dockerfile: Containerfile.okd

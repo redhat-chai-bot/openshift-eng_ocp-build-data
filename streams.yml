@@ -81,6 +81,18 @@ ubi9-micro:
   upstream_image: registry.ci.openshift.org/ocp/builder:ubi9-micro-openshift-{MAJOR}.{MINOR}.art
   mirror: false
 
+hi-static:
+  # The Red Hat hardened images static base, publicly available for
+  # amd64/arm64/s390x (no ppc64le yet). OKD, which ships only x86_64 and
+  # aarch64, can use the real image; OCP keeps the ubi9-micro stream
+  # above until hi/static is published for all OpenShift architectures.
+  # Mirrored into CI like the centos streams so OKD builds and alignment
+  # can reference it without registry credentials.
+  image: registry.access.redhat.com/hi/static:latest
+  upstream_image: registry.ci.openshift.org/ocp/builder:hi-static-openshift-{MAJOR}.{MINOR}.art
+  mirror: true
+  mirror_manifest_list: true
+
 nodejs-rhel9:
   image: registry.redhat.io/ubi9/nodejs-24:latest
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-openshift-nodejs-base-{MAJOR}.{MINOR}.art
