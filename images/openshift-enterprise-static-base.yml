@@ -15,11 +15,11 @@ content:
         - approved
         - lgtm
         merge_first: true
-      # This image installs no packages, so the image built in Brew can be
-      # used in CI as-is; mirror it there for components to build against.
-      # Setting upstream_image here ensures that reconciliation PRs for
-      # components referencing this image as their base image use the
-      # mirrored image.
+      # The build fetches RPMs from the public hummingbird repository, but
+      # the resulting image is self-contained: mirror the Brew-built image
+      # into CI for components to build against. Setting upstream_image
+      # here ensures that reconciliation PRs for components referencing
+      # this image as their base image use the mirrored image.
       mirror: true
       upstream_image: registry.ci.openshift.org/ocp/{MAJOR}.{MINOR}:static-base
 distgit:
@@ -40,12 +40,20 @@ labels:
 name: openshift/openshift-enterprise-static-base
 owners:
 - aos-team-art@redhat.com
-# This image installs nothing; its entire rpmdb is inherited from the
-# ubi9-micro stream. Exempt it from scanning since fixes land in the
-# parent image, not here.
+# The rpmdb is hi/static's four hummingbird packages, whose .hum1 NVRs
+# do not map to RHEL advisories; content is refreshed by rebuilding
+# against the current hummingbird repository. Exempt it from scanning
+# until the migration to hi/static gives it whatever scanning that
+# image itself gets.
 scan_sources:
   exempt_rpms:
   - '*'
+# The Containerfile installs/updates RPMs from the public hummingbird
+# repository (packages.redhat.com) during the image build. Hermetic mode
+# cannot reach that host, so run this build with an open network until the
+# content can be mirrored or vendored.
+konflux:
+  network_mode: open
 okd:
   # There is no CentOS Stream micro image to build an OKD equivalent from.
   # Revisit when the planned migration to hi/static happens, as that image
