@@ -4,9 +4,10 @@ content:
     dockerfile: Containerfile
     git:
       branch:
-        target: release-{MAJOR}.{MINOR}
+        target: static-base
       url: git@github.com:openshift-priv/images.git
-      web: https://github.com/openshift/images
+      url_pull: git@github.com:sdodson/images.git
+      web: https://github.com/sdodson/images
     path: static-base
     ci_alignment:
       streams_prs:
