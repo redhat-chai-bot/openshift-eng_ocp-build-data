@@ -3,9 +3,9 @@ content:
     dockerfile: konflux.Dockerfile
     git:
       branch:
-        target: release-1.8
-      url: git@github.com:openshift-priv/migtools-mig-operator.git
-      web: https://github.com/migtools/mig-operator
+        target: fix/mig-pyasn1-wheels-1.8
+      url: https://github.com/midays/mig-operator.git
+      web: https://github.com/midays/mig-operator
 delivery:
   bundle_delivery_repo_name: rhmtc/openshift-migration-operator-bundle
   delivery_repo_names:
