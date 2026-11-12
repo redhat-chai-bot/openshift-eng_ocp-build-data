@@ -126,12 +126,12 @@ repos:
     reposync:
       enabled: false
 
-  rhel-9-for-x86_64-highavailability-rpms:
+  rhoso-18.0-for-rhel-9-x86_64-rpms:
     conf:
       baseurl:
-        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9/x86_64/highavailability/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/x86_64/rhoso/18.0/os/
     content_set:
-      default: rhel-9-for-x86_64-highavailability-rpms
+      default: rhoso-18.0-for-rhel-9-x86_64-rpms
     reposync:
       enabled: false
 

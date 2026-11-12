@@ -3,9 +3,10 @@ content:
     dockerfile: konflux.Dockerfile
     git:
       branch:
-        target: fix/mig-pyasn1-wheels-1.8
+        target: release-1.8
       url: git@github.com:openshift-priv/migtools-mig-operator.git
-      web: https://github.com/redhat-chai-bot/migtools_mig-operator
+      url_pull: https://github.com/redhat-chai-bot/migtools_mig-operator.git
+      web: https://github.com/migtools/mig-operator
 delivery:
   bundle_delivery_repo_name: rhmtc/openshift-migration-operator-bundle
   delivery_repo_names:
@@ -17,7 +18,7 @@ enabled_repos:
   - rhel-9-appstream-rpms
   - rhel-9-baseos-rpms
   - rhocp-4.19-for-rhel-9-x86_64-rpms
-  - rhel-9-for-x86_64-highavailability-rpms
+  - rhoso-18.0-for-rhel-9-x86_64-rpms
 from:
   stream: ose-ansible-operator
 konflux:
