@@ -4,8 +4,8 @@ content:
     git:
       branch:
         target: fix/mig-pyasn1-wheels-1.8
-      url: https://github.com/midays/mig-operator.git
-      web: https://github.com/midays/mig-operator
+      url: https://github.com/redhat-chai-bot/migtools_mig-operator.git
+      web: https://github.com/redhat-chai-bot/migtools_mig-operator
 delivery:
   bundle_delivery_repo_name: rhmtc/openshift-migration-operator-bundle
   delivery_repo_names:
