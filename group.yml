@@ -126,6 +126,15 @@ repos:
     reposync:
       enabled: false
 
+  rhel-9-for-x86_64-highavailability-rpms:
+    conf:
+      baseurl:
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9/x86_64/highavailability/os/
+    content_set:
+      default: rhel-9-for-x86_64-highavailability-rpms
+    reposync:
+      enabled: false
+
   rhocp-4.19-for-rhel-9-x86_64-rpms:
     conf:
       baseurl:
